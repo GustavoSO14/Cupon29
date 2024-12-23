@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias</title>
+</head>
+<body>
+    <h1>¡Gracias por escanear!</h1>
+    <p>Cupón por un postre sorpresa 😊</p>
+
+    <script>
+        // Zapier webhook URL
+        const zapierUrl = "https://hooks.zapier.com/hooks/catch/20925224/285y97s/";
+
+        // Trigger Zapier webhook
+        fetch(zapierUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: "Cupón recibido" }),
+        })
+        .then(response => console.log("Zapier webhook triggered:", response.status))
+        .catch(error => console.error("Error triggering Zapier webhook:", error));
+    </script>
+</body>
+</html>
